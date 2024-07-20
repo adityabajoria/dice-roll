@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useState } from 'react';
+import Dice from "./Dice.js";
 
-function App() {
+export default function App() {
+  const [diceOne, setDiceOne] = useState(0);
+  const [diceTwo, setDiceTwo] = useState(0);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Welcome to the Dice Rolling Game!</h1>
+      <p>Roll the dice and generate a random number between 1-6.</p>
+      <Dice result={diceOne} setter={setDiceOne}/>
+      <Dice result={diceTwo} setter={setDiceTwo} />
+      <h2>Sum of Dices</h2>
+      <p>{diceOne + diceTwo}</p>
     </div>
   );
 }
-
-export default App;
